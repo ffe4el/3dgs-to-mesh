@@ -124,7 +124,7 @@ Gaussian Splatting requires two types of input data:
 1. **Images**: Collected from various angles.
 2. **Sparse Point Cloud**: Spatial information associated with each image.
 
-
+<br>
 
 ### 3. Installing and Reinstalling FFmpeg
 
@@ -154,6 +154,8 @@ If you encounter the following error:
 
 - "ffmpeg error while loading shared libraries: libopenh264.so.5 cannot open shared object file" Make sure to remove and reinstall all related libraries properly.
 
+<br>
+
 ### 4. Installing COLMAP and Verifying the Version
 
 COLMAP is a Structure-from-Motion and Multi-View Stereo tool used for feature matching across images, estimating camera positions, and generating 3D point clouds.
@@ -173,6 +175,7 @@ COLMAP is a Structure-from-Motion and Multi-View Stereo tool used for feature ma
 
 Version example: `COLMAP 3.6 -- Structure-from-Motion and Multi-View Stereo`
 
+<br>
 
 ### 5. Installing and Verifying Imagemagick
 
