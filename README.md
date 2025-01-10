@@ -1,6 +1,6 @@
 <div align="center">
 
-# Gaussian Splatting: A Practical Guide for Data Preparation, Training, and Visualization
+# 3DGS to Mesh: A Practical Guide for Data Preparation, Training, and Visualization
 
 <font size="4">
 Custom Implementation and Setup Guide
@@ -9,7 +9,7 @@ Custom Implementation and Setup Guide
 
 | [SuGaR Documentation](https://anttwo.github.io/sugar/) | [3D-GS Documentation](https://graphdeco.inria.fr) | [Online Viewer](https://playcanvas.com/supersplat/editor) |
 
-<img src="./media/playroom_hybrid.gif" alt="demo.gif" width="400"/>
+<img src="./media/playroom_hybrid.gif" alt="demo.gif" width="500"/>
 
 </div>
 
@@ -103,7 +103,6 @@ dependencies:
 
    ```bash
       git clone https://github.com/graphdeco-inria/gaussian-splatting --recursive
-   
    ```  
    <br> 2. clone SuGaR
 
@@ -118,9 +117,6 @@ dependencies:
       python install.py
       conda activate gausugar
    ```
-
----
-
 
 
 Gaussian Splatting requires two types of input data:
@@ -158,8 +154,6 @@ If you encounter the following error:
 
 - "ffmpeg error while loading shared libraries: libopenh264.so.5 cannot open shared object file" Make sure to remove and reinstall all related libraries properly.
 
----
-
 ### 4. Installing COLMAP and Verifying the Version
 
 COLMAP is a Structure-from-Motion and Multi-View Stereo tool used for feature matching across images, estimating camera positions, and generating 3D point clouds.
@@ -179,7 +173,6 @@ COLMAP is a Structure-from-Motion and Multi-View Stereo tool used for feature ma
 
 Version example: `COLMAP 3.6 -- Structure-from-Motion and Multi-View Stereo`
 
----
 
 ### 5. Installing and Verifying Imagemagick
 
