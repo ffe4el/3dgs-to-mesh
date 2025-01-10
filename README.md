@@ -284,7 +284,7 @@ To train a SuGaR model, use the following command:
   cd SuGaR
   python train_full_pipeline.py -s <path to COLMAP dataset> -r <"dn_consistency", "density" or "sdf"> --high_poly True --export_obj True --gs_output_dir <path to the Gaussian Splatting output directory>
 ```
-path to COLMAP dataset example => 3dgs_sugar_unified/data/my_video
+path to COLMAP dataset example => 3dgs_sugar_unified/data/my_video <br>
 path to the Gaussian Splatting output directory example => 3dgs_sugar_unified/data/3dgs_output/my_video
 
 
