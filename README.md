@@ -278,7 +278,7 @@ dependencies:
       - threadpoolctl==3.2.0
       - tzdata==2023.3
       - werkzeug==3.0.1
-
+      - opencv-python
 ```
 
 ---
