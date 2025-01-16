@@ -413,8 +413,8 @@ we use vessl server which is ubuntu environment without any GUI. But, COLMAP nee
 
 1. **Prepare folders:**
    - Place `my_video_input.mp4` inside `3dgs_sugar_unified/data/my_video/`.
-   - Create `input_img/` folder:
-   - Total path: `3dgs_sugar_unified/data/my_video/input_img`
+   - Create `input/` folder. ⚠️ you must not name the other name, only "input" can be allowed.
+   - Total path: `3dgs_sugar_unified/data/my_video/input`
    ```bash
    mkdir -p data/my_video/input_img
    ```
@@ -429,26 +429,7 @@ we use vessl server which is ubuntu environment without any GUI. But, COLMAP nee
    ```bash
    xvfb-run -a python convert.py -s data/my_video --no_gpu
    ```
-    **Note:** "no_gpu" is temporarily issue. So, if you could execute without "--no_gpu", then you can remove "--no_gpu".
-
-   **Note:** If COLMAP fails with an option error (`--Mapper.ba_global_function_tolerance`), modify `convert.py` by commenting out unnecessary flags:
-
-   ```python
-   mapper_cmd = (colmap_command + " mapper \
-       --database_path " + args.source_path + "/distorted/database.db \
-       --image_path " + args.source_path + "/input \
-       --output_path " + args.source_path)
-   ```
-
-   Additionally, you can encount the error below  <br>
-   Error => Missing 3D Reconstruction Data
-   - **Error Message:** `No files found in data/my_video/distorted/sparse/0`
-   - **Solution:**
-     Move `data/my_video/0/` to `data/my_video/sparse/0/`:
-   
-        ```bash
-        mv data/my_video/0/ data/my_video/sparse/0/
-        ```
+    **Note:** "no_gpu" is temporarily issue. If you could execute without "--no_gpu", then you can remove "--no_gpu".
 
 ---
 
@@ -459,38 +440,47 @@ we use vessl server which is ubuntu environment without any GUI. But, COLMAP nee
    cd gaussian-splatting
    ```
 
+
 2. Start training:
    ```bash
-   python train.py -s <data/my_video>
+   python train.py -s <../data/my_video>
    ```
 
-   A new folder will be created in `output/`, containing model checkpoints and results.
+   A new folder will be created in `data/3dgs_output/`, containing model checkpoints and results.
+   
+   than, you have to return to root folder. `/3dgs_sugar_unified`
+<br><br>
 
 3. Rename the output folder for convenience: <br>
-   because, the output folder-name is randomly generated.
+   The output folder-name is randomly generated. So, you can rename it with simple code.
    ```bash
-   mv output/<generated-folder-name> output/my_video
+   mv data/3dgs_output/<generated-folder-name> data/3dgs_output/<my_video>
    ```
 
 ---
 
 
 
-## Changing the Output Folder Path
+[//]: # (## Changing the Output Folder Path)
 
-By default, training results are saved to `/3dgs_sugar_unified/gaussian-splatting/output/`. If you want to move this folder to `/3dgs_sugar_unified/data/3dgs_output/`, run the following command:
-```bash
-  mv /3dgs_sugar_unified/gaussian-splatting/output/my_video /3dgs_sugar_unified/data/3dgs_output/my_video
-```
-Make sure to update the path accordingly after running `train_full_pipeline.py`. <br>
-because, we have to use this "output" for training SuGaR model to extract the mesh(.obj).
+[//]: # ()
+[//]: # (By default, training results are saved to `/3dgs_sugar_unified/gaussian-splatting/output/`. If you want to move this folder to `/3dgs_sugar_unified/data/3dgs_output/`, run the following command:)
+
+[//]: # (```bash)
+
+[//]: # (  mv /3dgs_sugar_unified/gaussian-splatting/output/my_video /3dgs_sugar_unified/data/3dgs_output/my_video)
+
+[//]: # (```)
+
+[//]: # (Make sure to update the path accordingly after running `train_full_pipeline.py`. <br>)
+
+[//]: # (because, we have to use this "output" for training SuGaR model to extract the mesh&#40;.obj&#41;.)
 
 ## Training and Model Configuration Guide
 
-To train a SuGaR model, use the following command:
+To train a SuGaR model, use the following comm**and:**
 
 ```bash
-  cd ..
   cd SuGaR
   python train_full_pipeline.py -s <path to COLMAP dataset> -r <"dn_consistency", "density" or "sdf"> --high_poly True --export_obj True --gs_output_dir <path to the Gaussian Splatting output directory>
 ```
@@ -500,7 +490,7 @@ path to the Gaussian Splatting output directory example => 3dgs_sugar_unified/da
 
 ### Regularization Method (-r Argument)
 - Available options: "dn_consistency", "density", "sdf"
-- Recommendation: "dn_consistency" (latest method, best mesh quality)
+- Recommendation: `"dn_consistency"` (latest method, best mesh quality)
 - Suggested configurations based on experiments:
   - **Object-centered scenes:** "density"
   - **Scenes with complex backgrounds (e.g., Mip-NeRF 360 dataset):** "sdf"
