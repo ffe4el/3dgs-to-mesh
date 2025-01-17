@@ -478,12 +478,12 @@ we use vessl server which is ubuntu environment without any GUI. But, COLMAP nee
 
 ## Training and Model Configuration Guide
 
-To train a SuGaR model, use the following comm**and:**
-
-```bash
-  cd SuGaR
-  python train_full_pipeline.py -s <path to COLMAP dataset> -r <"dn_consistency", "density" or "sdf"> --high_poly True --export_obj True --gs_output_dir <path to the Gaussian Splatting output directory>
-```
+To train a SuGaR model, use the following command:
+   
+   ```bash
+     cd SuGaR
+     python train_full_pipeline.py -s <path to COLMAP dataset> -r <"dn_consistency", "density" or "sdf"> --high_poly True --export_obj True --gs_output_dir <path to the Gaussian Splatting output directory>
+   ```
 path to COLMAP dataset example => 3dgs_sugar_unified/data/my_video <br>
 path to the Gaussian Splatting output directory example => 3dgs_sugar_unified/data/3dgs_output/my_video
 
@@ -526,7 +526,7 @@ path to the Gaussian Splatting output directory example => 3dgs_sugar_unified/da
 
 ## Training Results and Viewer Usage
 
-After training, results are saved in the `fined_mesh` and `refined_ply` directories.
+After training, results are saved in the `refined_mesh` and `refined_ply` directories.
 
 - **Automatic .ply File Export:**
   After refinement, the `.ply` file containing the hybrid SuGaR representation is automatically saved in the `./output/refined_ply/` directory.
